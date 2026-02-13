@@ -136,6 +136,7 @@ enum I18nKey {
 	projectsWeb = "projectsWeb",
 	projectsMobile = "projectsMobile",
 	projectsDesktop = "projectsDesktop",
+	projectsMinecraftMod = "projectsMinecraftMod",
 	projectsOther = "projectsOther",
 	projectTechStack = "projectTechStack",
 	projectLiveDemo = "projectLiveDemo",

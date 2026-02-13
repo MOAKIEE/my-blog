@@ -3,6 +3,7 @@
 export interface Device {
 	name: string;
 	image: string;
+	icon?: string;
 	specs: string;
 	description: string;
 	link: string;
@@ -16,24 +17,24 @@ export type DeviceCategory = {
 };
 
 export const devicesData: DeviceCategory = {
-	OnePlus: [
+	手机: [
 		{
-			name: "OnePlus 13T",
-			image: "/images/device/oneplus13t.png",
-			specs: "Gray / 16G + 1TB",
-			description:
-				"Flagship performance, Hasselblad imaging, 80W SuperVOOC.",
-			link: "https://www.oneplus.com/cn/13t",
+			name: "XIAOMI 13",
+			image: "",
+			icon: "material-symbols:smartphone",
+			specs: "远山蓝 / 12GB + 256GB",
+			description: "小米旗舰手机，徕卡影像，骁龙8 Gen2处理器。",
+			link: "https://www.mi.com/xiaomi-13",
 		},
 	],
-	Router: [
+	平板: [
 		{
-			name: "GL-MT3000",
-			image: "/images/device/mt3000.png",
-			specs: "1000Mbps / 2.5G",
-			description:
-				"Portable WiFi 6 router suitable for business trips and home use.",
-			link: "https://www.gl-inet.cn/products/gl-mt3000/",
+			name: "拯救者 Y700",
+			image: "",
+			icon: "material-symbols:tablet-android",
+			specs: "黑色 / 12GB + 256GB",
+			description: "联想游戏平板，骁龙870处理器，适合游戏和娱乐。",
+			link: "https://www.lenovo.com.cn/y700",
 		},
 	],
 };

@@ -1,12 +1,11 @@
 // Project data configuration file
-// Used to manage data for the project display page
 
 export interface Project {
 	id: string;
 	title: string;
 	description: string;
 	image: string;
-	category: "web" | "mobile" | "desktop" | "other";
+	category: "web" | "mobile" | "desktop" | "minecraft-mod" | "other";
 	techStack: string[];
 	status: "completed" | "in-progress" | "planned";
 	liveDemo?: string;
@@ -15,82 +14,98 @@ export interface Project {
 	endDate?: string;
 	featured?: boolean;
 	tags?: string[];
-	visitUrl?: string; // 添加前往项目链接字段
+	visitUrl?: string;
 }
 
 export const projectsData: Project[] = [
 	{
-		id: "mizuki-blog",
-		title: "Mizuki Blog Theme",
+		id: "me-placement-tool",
+		title: "ME Placement Tool",
 		description:
-			"Modern blog theme developed based on the Astro framework, supporting multilingual, dark mode, and responsive design features.",
+			"A Minecraft mod that adds placement tools for Applied Energistics 2. Place blocks, AE2 cable parts, and fluids directly from your ME network.",
 		image: "",
-		category: "web",
-		techStack: ["Astro", "TypeScript", "Tailwind CSS", "Svelte"],
+		category: "minecraft-mod",
+		techStack: ["Java", "Minecraft", "Forge", "AE2"],
 		status: "completed",
-		liveDemo: "https://blog.example.com",
-		sourceCode: "https://github.com/example/mizuki", // 更改为GitHub链接
-		visitUrl: "https://blog.example.com", // 添加前往项目链接
-		startDate: "2024-01-01",
-		endDate: "2024-06-01",
+		liveDemo: "https://mept.moakiee.xyz/",
+		sourceCode: "https://github.com/MOAKIEE/ME-Placement-Tool",
+		visitUrl: "https://mept.moakiee.xyz/",
+		startDate: "2025-12-17",
 		featured: true,
-		tags: ["Blog", "Theme", "Open Source"],
+		tags: ["Minecraft", "Mod", "AE2"],
 	},
 	{
-		id: "portfolio-website",
-		title: "Personal Portfolio",
+		id: "haji-timetable",
+		title: "哈基课程表",
 		description:
-			"Personal portfolio website showcasing project experience and technical skills.",
-		image: "",
-		category: "web",
-		techStack: ["React", "Next.js", "TypeScript", "Framer Motion"],
-		status: "completed",
-		liveDemo: "https://portfolio.example.com",
-		sourceCode: "https://github.com/example/portfolio",
-		visitUrl: "https://portfolio.example.com", // 添加前往项目链接
-		startDate: "2023-09-01",
-		endDate: "2023-12-01",
-		featured: true,
-		tags: ["Portfolio", "React", "Animation"],
-	},
-	{
-		id: "task-manager-app",
-		title: "Task Manager App",
-		description:
-			"Cross-platform task management application supporting team collaboration and project management.",
+			"一款简洁美观的 Android 课程表应用，支持多课表管理、智能冲突检测、日历同步、二维码分享等功能。",
 		image: "",
 		category: "mobile",
-		techStack: ["React Native", "TypeScript", "Redux", "Firebase"],
-		status: "in-progress",
-		startDate: "2024-03-01",
-		tags: ["Mobile", "Productivity", "Team Collaboration"],
-	},
-	{
-		id: "data-visualization-tool",
-		title: "Data Visualization Tool",
-		description:
-			"Data visualization tool supporting multiple chart types and interactive analysis.",
-		image: "",
-		category: "web",
-		techStack: ["Vue.js", "D3.js", "TypeScript", "Node.js"],
+		techStack: ["Kotlin", "Jetpack Compose", "Android", "Room"],
 		status: "completed",
-		liveDemo: "https://dataviz.example.com",
-		visitUrl: "https://dataviz.example.com", // 添加前往项目链接
-		startDate: "2023-06-01",
-		endDate: "2023-11-01",
-		tags: ["Data Visualization", "Analytics", "Charts"],
+		sourceCode: "https://github.com/MOAKIEE/haji-timetable",
+		visitUrl: "https://github.com/MOAKIEE/haji-timetable",
+		startDate: "2025-12-04",
+		featured: true,
+		tags: ["Android", "App", "Kotlin"],
 	},
 	{
-		id: "e-commerce-platform",
-		title: "E-commerce Platform",
+		id: "me-placement-tool-site",
+		title: "ME Placement Tool Site",
 		description:
-			"Full-stack e-commerce platform including user management, product management, and order processing features.",
+			"ME Placement Tool 官方网站，展示模组功能、下载链接和使用文档。",
 		image: "",
 		category: "web",
-		techStack: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-		status: "planned",
-		startDate: "2024-07-01",
-		tags: ["E-commerce", "Full Stack", "Payment Integration"],
+		techStack: ["TypeScript", "Vite", "Tailwind CSS"],
+		status: "completed",
+		liveDemo: "https://mept.moakiee.xyz/",
+		sourceCode: "https://github.com/MOAKIEE/me-placement-tool-site",
+		visitUrl: "https://mept.moakiee.xyz/",
+		startDate: "2026-02-11",
+		tags: ["Web", "Documentation"],
+	},
+	{
+		id: "sfm-code-generator",
+		title: "SFM Code Generator",
+		description:
+			"Minecraft 模组 Super Factory Manager 的可视化代码生成工具，支持可视化编辑、触发器配置、实时预览。",
+		image: "",
+		category: "desktop",
+		techStack: ["C#", "WPF", ".NET"],
+		status: "completed",
+		sourceCode: "https://github.com/MOAKIEE/SFMCodeGenerator",
+		visitUrl: "https://github.com/MOAKIEE/SFMCodeGenerator",
+		startDate: "2026-02-03",
+		tags: ["Desktop", "Minecraft", "Tool"],
+	},
+	{
+		id: "sfm-code-generator-web",
+		title: "SFM Code Generator Web",
+		description:
+			"SFM Code Generator 的网页版本，无需安装即可使用。",
+		image: "",
+		category: "web",
+		techStack: ["TypeScript", "Web"],
+		status: "completed",
+		liveDemo: "https://sfm.moakiee.xyz/",
+		sourceCode: "https://github.com/MOAKIEE/SFMCodeGenerator-web",
+		visitUrl: "https://sfm.moakiee.xyz/",
+		startDate: "2026-02-12",
+		tags: ["Web", "Minecraft", "Tool"],
+	},
+	{
+		id: "ae2-infinity-disk",
+		title: "AE2 Infinity Disk",
+		description:
+			"An AE2 addon that provides support for disks with unlimited capacity and types.",
+		image: "",
+		category: "minecraft-mod",
+		techStack: ["Java", "Minecraft", "AE2"],
+		status: "completed",
+		sourceCode: "https://github.com/cystrySU/AE2-Infinity-Disk",
+		visitUrl: "https://github.com/cystrySU/AE2-Infinity-Disk",
+		startDate: "2025-12-04",
+		tags: ["Minecraft", "Mod", "AE2"],
 	},
 ];
 

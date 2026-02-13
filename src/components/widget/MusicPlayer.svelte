@@ -20,6 +20,7 @@ let meting_id = musicPlayerConfig.id ?? "14164869977";
 let meting_server = musicPlayerConfig.server ?? "netease";
 // Meting API 的类型，从配置中获取或使用默认值
 let meting_type = musicPlayerConfig.type ?? "playlist";
+let defaultCover = musicPlayerConfig.defaultCover ?? "/favicon/favicon.ico";
 
 // 播放状态，默认为 false (未播放)
 let isPlaying = false;
@@ -76,32 +77,14 @@ let audio: HTMLAudioElement;
 let progressBar: HTMLElement;
 let volumeBar: HTMLElement;
 
-const localPlaylist = [
-	{
-		id: 1,
-		title: "ひとり上手",
-		artist: "Kaya",
-		cover: "assets/music/cover/hitori.jpg",
-		url: "assets/music/url/hitori.mp3",
-		duration: 240,
-	},
-	{
-		id: 2,
-		title: "眩耀夜行",
-		artist: "スリーズブーケ",
-		cover: "assets/music/cover/xryx.jpg",
-		url: "assets/music/url/xryx.mp3",
-		duration: 180,
-	},
-	{
-		id: 3,
-		title: "春雷の頃",
-		artist: "22/7",
-		cover: "assets/music/cover/cl.jpg",
-		url: "assets/music/url/cl.mp3",
-		duration: 200,
-	},
-];
+const localPlaylist = (musicPlayerConfig.playlist ?? []).map((song, index) => ({
+	id: index + 1,
+	title: song.title,
+	artist: song.artist,
+	cover: song.cover ?? defaultCover,
+	url: song.url,
+	duration: song.duration ?? 0,
+}));
 
 // 从localStorage加载音量设置
 function loadVolumeSettings() {

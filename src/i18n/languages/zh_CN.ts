@@ -140,6 +140,7 @@ export const zh_CN: Translation = {
 	[Key.projectsWeb]: "网页应用",
 	[Key.projectsMobile]: "移动应用",
 	[Key.projectsDesktop]: "桌面应用",
+	[Key.projectsMinecraftMod]: "Minecraft Mod",
 	[Key.projectsOther]: "其他",
 	[Key.projectTechStack]: "技术栈",
 	[Key.projectLiveDemo]: "在线演示",

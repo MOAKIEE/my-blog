@@ -145,6 +145,7 @@ export const en: Translation = {
 	[Key.projectsWeb]: "Web Applications",
 	[Key.projectsMobile]: "Mobile Applications",
 	[Key.projectsDesktop]: "Desktop Applications",
+	[Key.projectsMinecraftMod]: "Minecraft Mod",
 	[Key.projectsOther]: "Other",
 	[Key.projectTechStack]: "Tech Stack",
 	[Key.projectLiveDemo]: "Live Demo",

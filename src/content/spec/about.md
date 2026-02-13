@@ -1,49 +1,32 @@
 
-This website is built with the **Astro** framework using the [Mizuki](https://github.com/matsuzaka-yuki/mizuki) theme.
+## 👋 关于我
 
-::github{repo="matsuzaka-yuki/Mizuki"}
+你好，我是 **MOAKIEE**，一名正在读大学的学生，热爱编程和 Minecraft 模组开发。
 
-## 🌟 Theme Features
+## 🎮 我在做什么
 
-### 🎨 Design & User Experience
-- **Modern & Elegant Design** - Clean, minimalist interface with beautiful typography
-- **Fully Responsive** - Optimized for all devices from mobile to desktop
-- **Dark/Light Mode** - Automatic theme switching with smooth transitions
-- **Beautiful Typography** - Enhanced readability with JetBrains Mono font
-- **Smooth Animations** - Fluid page transitions and interactive elements
+- **Minecraft 模组开发** - 开发了 ME Placement Tool、AE2 Infinity Disk 等模组
+- **Android 应用开发** - 使用 Kotlin + Jetpack Compose 开发应用
+- **Web 开发** - 学习前端技术，搭建个人博客
+- **借助 AI 学习** - 利用 AI 工具辅助编程学习，提高开发效率
 
-### 🔍 Content & Search
-- **Advanced Search** - Powered by [Pagefind](https://pagefind.app/) for fast, accurate results
-- **Enhanced Markdown** - Extended syntax with code highlighting and math support
-- **Interactive Table of Contents** - Auto-scroll navigation for long articles
-- **RSS Feed Generation** - Stay updated with automatic feed generation
-- **Reading Time Estimation** - Know how long articles take to read
-- **Post Categorization** - Organize content with tags and categories
+## 🛠 技术栈
 
+- **编程语言**: Java, Kotlin, TypeScript, C#
+- **游戏开发**: Minecraft Forge/NeoForge
+- **移动开发**: Android, Jetpack Compose
+- **Web 开发**: Vite, Tailwind CSS
 
+## 📫 联系我
 
-### 📱 Special Pages
-- **Anime Tracking Page** - Track your anime watching progress with ratings
-- **Friends Links Page** - Showcase friend websites with beautiful cards
-- **Diary/Moments Page** - Share life moments like social media posts
-- **Archive Page** - Organized timeline view of all posts
-- **About Page** - Customizable personal introduction (this page!)
+欢迎通过以下方式联系我：
 
-### 🛠 Technical Features
-- **Enhanced Code Blocks** - Powered by [Expressive Code](https://expressive-code.com/)
-- **Math Support** - LaTeX rendering with KaTeX for mathematical expressions
-- **Image Optimization** - PhotoSwipe gallery with lazy loading
-- **SEO Optimized** - Built-in sitemap and meta tags for better search visibility
-- **Performance Optimized** - Fast loading with caching and optimization
-- **Comment System Ready** - Integration support for Twikoo comments
-
-### 🎯 Advanced Markdown Features
-- **Callouts & Admonitions** - Beautiful info boxes with `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`
-- **Mathematical Equations** - Write LaTeX math with `$inline$` and `$$block$$` syntax
-- **GitHub Cards** - Embed repository cards with `::github{repo="user/repo"}`
-- **Syntax Highlighting** - Advanced code highlighting with line numbers
-- **Copy Code Buttons** - Easy code copying functionality
+- [GitHub](https://github.com/MOAKIEE)
+- [Bilibili](https://space.bilibili.com/189955320)
+- [MCMod](https://www.mcmod.cn/author/37834.html)
+- [CurseForge](https://www.curseforge.com/members/moakiee/projects)
+- [Modrinth](https://modrinth.com/user/MOAKIEE)
 
 ---
 
-*Built with ❤️ using Astro and inspired by modern web design principles.*
+*本博客使用 [Astro](https://astro.build) 框架和 [Mizuki](https://github.com/matsuzaka-yuki/mizuki) 主题构建。*

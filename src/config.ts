@@ -1,4 +1,4 @@
-import type {
+﻿import type {
 	AnnouncementConfig,
 	CommentConfig,
 	ExpressiveCodeConfig,
@@ -19,30 +19,30 @@ import { LinkPreset } from "./types/config";
 // 移除i18n导入以避免循环依赖
 
 // 定义站点语言
-const SITE_LANG = "ja"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UTC+8
 export const siteConfig: SiteConfig = {
-	title: "Mizuki",
-	subtitle: "One demo website",
-	siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
-	siteStartDate: "2025-01-01", // 站点开始运行日期，用于站点统计组件计算运行天数
+	title: "哈基米の小窝",
+	subtitle: "此猫已有哈根，可以达斯了",
+	siteURL: "https://moakiee.xyz/", // 请替换为你的站点URL，以斜杠结尾
+	siteStartDate: "2026-02-13", // 站点开始运行日期，用于站点统计组件计算运行天数
 
 	timeZone: SITE_TIMEZONE,
 
 	lang: SITE_LANG,
 
 	themeColor: {
-		hue: 60, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+		hue: 300, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
 		fixed: false, // 对访问者隐藏主题色选择器
 	},
 
 	// 特色页面开关配置（关闭未使用的页面有助于提升 SEO，关闭后请记得在 navbarConfig 中移除对应链接）
 	featurePages: {
-		anime: true, // 番剧页面开关
+		anime: false, // 番剧页面开关
 		diary: true, // 日记页面开关
 		friends: true, // 友链页面开关
 		projects: true, // 项目页面开关
-		skills: true, // 技能页面开关
+		skills: false, // 技能页面开关
 		timeline: true, // 时间线页面开关
 		albums: true, // 相册页面开关
 		devices: true, // 设备页面开关
@@ -53,7 +53,7 @@ export const siteConfig: SiteConfig = {
 		// 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
 		mode: "logo",
 		// 顶栏标题文本
-		text: "MizukiUI",
+		text: "哈基米の小窝",
 		// 顶栏标题图标路径，默认使用 public/assets/home/home.png
 		icon: "assets/home/home.png",
 		// 网站Logo图片路径
@@ -72,7 +72,7 @@ export const siteConfig: SiteConfig = {
 	},
 
 	bilibili: {
-		vmid: "your-bilibili-vmid", // 在此处设置你的Bilibili用户ID (uid)，例如 "1129280784"
+		vmid: "189955320", // 在此处设置你的Bilibili用户ID (uid)，例如 "1129280784"
 		fetchOnDev: false, // 是否在开发环境下获取 Bilibili 数据（默认 false）
 		coverMirror: "", // 封面图片镜像源（可选，如果需要使用镜像源，例如 "https://images.weserv.nl/?url="）
 		useWebp: true, // 是否使用WebP格式（默认 true）
@@ -120,10 +120,8 @@ export const siteConfig: SiteConfig = {
 		src: {
 			desktop: [
 				"/assets/desktop-banner/1.webp",
-				"/assets/desktop-banner/2.webp",
 				"/assets/desktop-banner/3.webp",
 				"/assets/desktop-banner/4.webp",
-				"/assets/desktop-banner/5.webp",
 				"/assets/desktop-banner/6.webp",
 			], // 桌面横幅图片
 			mobile: [
@@ -133,6 +131,9 @@ export const siteConfig: SiteConfig = {
 				"/assets/mobile-banner/4.webp",
 				"/assets/mobile-banner/5.webp",
 				"/assets/mobile-banner/6.webp",
+				"/assets/mobile-banner/7.webp",
+				"/assets/mobile-banner/8.webp",
+				"/assets/mobile-banner/9.webp",
 			], // 移动横幅图片
 		}, // 使用本地横幅图片
 
@@ -160,14 +161,13 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true, // 在主页显示自定义文本
-			title: "わたしの部屋", // 主页横幅主标题
+			title: "哈基米の小窝", // 主页横幅主标题
 
 			subtitle: [
-				"特別なことはないけど、君がいると十分です",
-				"今でもあなたは私の光",
-				"君ってさ、知らないうちに私の毎日になってたよ",
-				"君と話すと、なんか毎日がちょっと楽しくなるんだ",
-				"今日はなんでもない日。でも、ちょっとだけいい日",
+				"此猫已有哈根，可以达斯了",
+				"欢迎来到我的个人博客~",
+				"记录学习与生活的点滴",
+				"今天也要加油哦~",
 			],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
@@ -232,10 +232,8 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	src: {
 		desktop: [
 			"/assets/desktop-banner/1.webp",
-			"/assets/desktop-banner/2.webp",
 			"/assets/desktop-banner/3.webp",
 			"/assets/desktop-banner/4.webp",
-			"/assets/desktop-banner/5.webp",
 			"/assets/desktop-banner/6.webp",
 		], // 桌面横幅图片
 		mobile: [
@@ -245,6 +243,9 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 			"/assets/mobile-banner/4.webp",
 			"/assets/mobile-banner/5.webp",
 			"/assets/mobile-banner/6.webp",
+			"/assets/mobile-banner/7.webp",
+			"/assets/mobile-banner/8.webp",
+			"/assets/mobile-banner/9.webp",
 		], // 移动横幅图片
 	}, // 使用本地横幅图片
 	position: "center", // 壁纸位置，等同于 object-position
@@ -261,7 +262,6 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
-		// 支持自定义导航栏链接，支持多级菜单
 		{
 			name: "Links",
 			url: "/links/",
@@ -269,21 +269,33 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
+					url: "https://github.com/MOAKIEE",
 					external: true,
 					icon: "fa7-brands:github",
 				},
 				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					url: "https://space.bilibili.com/189955320",
 					external: true,
 					icon: "fa7-brands:bilibili",
 				},
 				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
+					name: "MCMod",
+					url: "https://www.mcmod.cn/author/37834.html",
 					external: true,
-					icon: "mdi:git",
+					icon: "mdi:cube",
+				},
+				{
+					name: "CurseForge",
+					url: "https://www.curseforge.com/members/moakiee/projects",
+					external: true,
+					icon: "simple-icons:curseforge",
+				},
+				{
+					name: "Modrinth",
+					url: "https://modrinth.com/user/MOAKIEE",
+					external: true,
+					icon: "simple-icons:modrinth",
 				},
 			],
 		},
@@ -292,11 +304,6 @@ export const navBarConfig: NavBarConfig = {
 			url: "/content/",
 			icon: "material-symbols:person",
 			children: [
-				{
-					name: "Anime",
-					url: "/anime/",
-					icon: "material-symbols:movie",
-				},
 				{
 					name: "Diary",
 					url: "/diary/",
@@ -309,9 +316,8 @@ export const navBarConfig: NavBarConfig = {
 				},
 				{
 					name: "Devices",
-					url: "devices/",
+					url: "/devices/",
 					icon: "material-symbols:devices",
-					external: false,
 				},
 			],
 		},
@@ -343,11 +349,6 @@ export const navBarConfig: NavBarConfig = {
 					icon: "material-symbols:work",
 				},
 				{
-					name: "Skills",
-					url: "/skills/",
-					icon: "material-symbols:psychology",
-				},
-				{
 					name: "Timeline",
 					url: "/timeline/",
 					icon: "material-symbols:timeline",
@@ -359,37 +360,37 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar.webp", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
-	name: "まつざか ゆき",
-	bio: "世界は大きい、君は行かなければならない",
+	name: "MOAKIEE",
+	bio: "此猫已有哈根，可以达斯了",
 	typewriter: {
 		enable: true, // 启用个人简介打字机效果
 		speed: 80, // 打字速度（毫秒）
 	},
 	links: [
 		{
-			name: "Bilibili",
-			icon: "fa7-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
-		},
-		{
-			name: "Gitee",
-			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
-		},
-		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
+			url: "https://github.com/MOAKIEE",
 		},
 		{
-			name: "Codeberg",
-			icon: "simple-icons:codeberg",
-			url: "https://codeberg.org",
+			name: "Bilibili",
+			icon: "fa7-brands:bilibili",
+			url: "https://space.bilibili.com/189955320",
 		},
 		{
-			name: "Discord",
-			icon: "fa7-brands:discord",
-			url: "https://discord.gg/MqW6TcQtVM",
+			name: "MCMod",
+			icon: "mdi:cube",
+			url: "https://www.mcmod.cn/author/37834.html",
+		},
+		{
+			name: "CurseForge",
+			icon: "simple-icons:curseforge",
+			url: "https://www.curseforge.com/members/moakiee/projects",
+		},
+		{
+			name: "Modrinth",
+			icon: "simple-icons:modrinth",
+			url: "https://modrinth.com/user/MOAKIEE",
 		},
 	],
 };
@@ -448,11 +449,11 @@ export const shareConfig: ShareConfig = {
 
 export const announcementConfig: AnnouncementConfig = {
 	title: "", // 公告标题，填空使用i18n字符串Key.announcement
-	content: "ブログへようこそ！これはサンプルの告知です", // 公告内容
+	content: "欢迎来到哈基米の小窝！这是我的个人博客~", // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
-		text: "Learn More", // 链接文本
+		text: "了解更多", // 链接文本
 		url: "/about/", // 链接 URL
 		external: false, // 内部链接
 	},
@@ -460,12 +461,85 @@ export const announcementConfig: AnnouncementConfig = {
 
 export const musicPlayerConfig: MusicPlayerConfig = {
 	enable: true, // 启用音乐播放器功能
-	mode: "meting", // 音乐播放器模式，可选 "local" 或 "meting"
+	mode: "local", // 音乐播放器模式，可选 "local" 或 "meting"
 	meting_api:
 		"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r", // Meting API 地址
 	id: "14164869977", // 歌单ID
 	server: "netease", // 音乐源服务器。有的meting的api源支持更多平台,一般来说,netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
 	type: "playlist", // 播单类型
+	defaultCover: "/assets/home/home.png", // 默认封面图片
+	playlist: [
+		{ title: "JINGLE BELLS", artist: "全民制作人", url: "/assets/music/url/JINGLE BELLS .mp3" },
+		{ title: "Xin Đừng Nhấc Máy 请不要哈气、", artist: "全民制作人", url: "/assets/music/url/Xin Đừng Nhấc Máy  请不要哈气、.mp3" },
+		{ title: "♬ Sunshine 曼波 ♬ 阳光曼波)", artist: "全民制作人", url: "/assets/music/url/♬ Sunshine 曼波 ♬ 阳光曼波).mp3" },
+		{ title: "⚡MAGENTA POTION 哈基米药水⚡", artist: "全民制作人", url: "/assets/music/url/⚡MAGENTA POTION 哈基米药水⚡.mp3" },
+		{ title: "⚡基米没茅台⚡全家没more time⚡", artist: "全民制作人", url: "/assets/music/url/⚡基米没茅台⚡全家没more time⚡.mp3" },
+		{ title: "⚡约 德 尔 曼 波⚡", artist: "全民制作人", url: "/assets/music/url/⚡约 德 尔 曼 波⚡.mp3" },
+		{ title: "⚡🐱哈基米这个动感🐱⚡", artist: "全民制作人", url: "/assets/music/url/⚡🐱哈基米这个动感🐱⚡.mp3" },
+		{ title: "❤曼波之爱", artist: "全民制作人", url: "/assets/music/url/❤曼波之爱.mp3" },
+		{ title: "❤️one more last 曼波❤️", artist: "全民制作人", url: "/assets/music/url/❤️one more last 曼波❤️.mp3" },
+		{ title: "《危基派对》", artist: "全民制作人", url: "/assets/music/url/《危基派对》.mp3" },
+		{ title: "【哈基米】 Please Don't Go", artist: "全民制作人", url: "/assets/music/url/【哈基米】 Please Don't Go.mp3" },
+		{ title: "【哈基米】Edge Of My Hachimi", artist: "全民制作人", url: "/assets/music/url/【哈基米】Edge Of My Hachimi.mp3" },
+		{ title: "【哈基米】Nevada", artist: "全民制作人", url: "/assets/music/url/【哈基米】Nevada.mp3" },
+		{ title: "【哈基米】The Entertainer)", artist: "全民制作人", url: "/assets/music/url/【哈基米】The Entertainer).mp3" },
+		{ title: "【哈基米】Wake", artist: "全民制作人", url: "/assets/music/url/【哈基米】Wake.mp3" },
+		{ title: "【哈基米】sofia", artist: "全民制作人", url: "/assets/music/url/【哈基米】sofia .mp3" },
+		{ title: "【哈基米】啊↑~~~", artist: "全民制作人", url: "/assets/music/url/【哈基米】啊↑~~~.mp3" },
+		{ title: "【哈基米】年轮", artist: "全民制作人", url: "/assets/music/url/【哈基米】年轮 .mp3" },
+		{ title: "【哈基米】悠闲の小曲", artist: "全民制作人", url: "/assets/music/url/【哈基米】悠闲の小曲.mp3" },
+		{ title: "【哈基米】猛毒注意", artist: "全民制作人", url: "/assets/music/url/【哈基米】猛毒注意.mp3" },
+		{ title: "【哈基米】😸特别的一天😸", artist: "全民制作人", url: "/assets/music/url/【哈基米】😸特别的一天😸.mp3" },
+		{ title: "一点点", artist: "全民制作人", url: "/assets/music/url/一点点.mp3" },
+		{ title: "不信我 就走着哈", artist: "全民制作人", url: "/assets/music/url/不信我 就走着哈.mp3" },
+		{ title: "乖猫FM之哈基米灵感菇", artist: "全民制作人", url: "/assets/music/url/乖猫FM之哈基米灵感菇.mp3" },
+		{ title: "变態基米", artist: "全民制作人", url: "/assets/music/url/变態基米.mp3" },
+		{ title: "告白基米", artist: "全民制作人", url: "/assets/music/url/告白基米 .mp3" },
+		{ title: "哈基米在等你的来电~", artist: "全民制作人", url: "/assets/music/url/哈基米在等你的来电~.mp3" },
+		{ title: "哈基米这个甜蜜", artist: "全民制作人", url: "/assets/music/url/哈基米这个甜蜜.mp3" },
+		{ title: "哈基米重度依赖✞HACHIMI OVERDOSE✞", artist: "全民制作人", url: "/assets/music/url/哈基米重度依赖✞HACHIMI OVERDOSE✞.mp3" },
+		{ title: "哈基米：Hatchime🎵", artist: "全民制作人", url: "/assets/music/url/哈基米：Hatchime🎵 .mp3" },
+		{ title: "哈基米：Sky", artist: "全民制作人", url: "/assets/music/url/哈基米：Sky .mp3" },
+		{ title: "哈基米：Sugar🐱", artist: "全民制作人", url: "/assets/music/url/哈基米：Sugar🐱.mp3" },
+		{ title: "哈基米：♪MoshiMoshi♪", artist: "全民制作人", url: "/assets/music/url/哈基米：♪MoshiMoshi♪ .mp3" },
+		{ title: "哈基米：🎵𝑨𝒍𝒍 𝑾𝒆 𝑲𝒏𝒐𝒘🎵", artist: "全民制作人", url: "/assets/music/url/哈基米：🎵𝑨𝒍𝒍 𝑾𝒆 𝑲𝒏𝒐𝒘🎵.mp3" },
+		{ title: "哈基米：🐱达拉崩吧🐱)", artist: "全民制作人", url: "/assets/music/url/哈基米：🐱达拉崩吧🐱).mp3" },
+		{ title: "哈雪大帽险", artist: "全民制作人", url: "/assets/music/url/哈雪大帽险 - 1.哈雪大帽险(Av112966179686939,P1).mp3" },
+		{ title: "啊米诺斯（aminals）", artist: "全民制作人", url: "/assets/music/url/啊米诺斯（aminals）.mp3" },
+		{ title: "基卫", artist: "全民制作人", url: "/assets/music/url/基卫.mp3" },
+		{ title: "基米baby🎵", artist: "全民制作人", url: "/assets/music/url/基米baby🎵.mp3" },
+		{ title: "基米s on your lawn", artist: "全民制作人", url: "/assets/music/url/基米s on your lawn.mp3" },
+		{ title: "基米说", artist: "全民制作人", url: "/assets/music/url/基米说.mp3" },
+		{ title: "孤高曼波", artist: "全民制作人", url: "/assets/music/url/孤高曼波.mp3" },
+		{ title: "室内系的HajimiMaker", artist: "全民制作人", url: "/assets/music/url/室内系的HajimiMaker.mp3" },
+		{ title: "幼耄幻奏", artist: "全民制作人", url: "/assets/music/url/幼耄幻奏 .mp3" },
+		{ title: "彩虹耄", artist: "全民制作人", url: "/assets/music/url/彩虹耄.mp3" },
+		{ title: "曼波、曼波、有时哈基米)", artist: "全民制作人", url: "/assets/music/url/曼波、曼波、有时哈基米).mp3" },
+		{ title: "曼波你身", artist: "全民制作人", url: "/assets/music/url/曼波你身.mp3" },
+		{ title: "曼波时代（Gee）", artist: "全民制作人", url: "/assets/music/url/曼波时代（Gee）.mp3" },
+		{ title: "来去曼波🎵", artist: "全民制作人", url: "/assets/music/url/来去曼波🎵.mp3" },
+		{ title: "死一样的哈过", artist: "全民制作人", url: "/assets/music/url/死一样的哈过.mp3" },
+		{ title: "溯", artist: "全民制作人", url: "/assets/music/url/溯.mp3" },
+		{ title: "猫儿这个可爱 ねえ！", artist: "全民制作人", url: "/assets/music/url/猫儿这个可爱 ねえ！.mp3" },
+		{ title: "🎵不再曼波", artist: "全民制作人", url: "/assets/music/url/🎵不再曼波.mp3" },
+		{ title: "🎵哈基米3_03PM🎵", artist: "全民制作人", url: "/assets/music/url/🎵哈基米3_03PM🎵.mp3" },
+		{ title: "🎵哈基米FM之放松小曲🎵", artist: "全民制作人", url: "/assets/music/url/🎵哈基米FM之放松小曲🎵.mp3" },
+		{ title: "🎵哈气之路🎵", artist: "全民制作人", url: "/assets/music/url/🎵哈气之路🎵.mp3" },
+		{ title: "🎵基米与暗恋🎵", artist: "全民制作人", url: "/assets/music/url/🎵基米与暗恋🎵.mp3" },
+		{ title: "🎵𝑪𝒐𝒍𝒐𝒓-𝑿🎵", artist: "全民制作人", url: "/assets/music/url/🎵𝑪𝒐𝒍𝒐𝒓-𝑿🎵.mp3" },
+		{ title: "🎵𝑾𝒆 𝒅𝒐𝒏'𝒕 𝒕𝒂𝒍𝒌 𝒂𝒏𝒚 曼波🎵", artist: "全民制作人", url: "/assets/music/url/🎵𝑾𝒆 𝒅𝒐𝒏'𝒕 𝒕𝒂𝒍𝒌 𝒂𝒏𝒚 曼波🎵.mp3" },
+		{ title: "🐱Hanama🐱", artist: "全民制作人", url: "/assets/music/url/🐱Hanama🐱.mp3" },
+		{ title: "🐱Starboy🐱(Remix)", artist: "全民制作人", url: "/assets/music/url/🐱Starboy🐱(Remix).mp3" },
+		{ title: "基米在寻觅，绿豆在哪里", artist: "全民制作人", url: "/assets/music/url/基米在寻觅，绿豆在哪里.mp3" },
+		{ title: "🐱哈基山的基米美如水啊🐱", artist: "全民制作人", url: "/assets/music/url/🐱哈基山的基米美如水啊🐱 .mp3" },
+		{ title: "🐱在月亮下哈气🐱", artist: "全民制作人", url: "/assets/music/url/🐱在月亮下哈气🐱.mp3" },
+		{ title: "🐱基米清单🐱''Checklist~哈 基 米''", artist: "全民制作人", url: "/assets/music/url/🐱基米清单🐱''Checklist~哈 基 米'' .mp3" },
+		{ title: "🐱柠檬树上哈基果🐱", artist: "全民制作人", url: "/assets/music/url/🐱柠檬树上哈基果🐱.mp3" },
+		{ title: "🐱欧马吉利 Lose Control🐱)", artist: "全民制作人", url: "/assets/music/url/🐱欧马吉利 Lose Control🐱).mp3" },
+		{ title: "🐱究竟要多绝望的哈气，才能唱出这首《That Cat》🐱", artist: "全民制作人", url: "/assets/music/url/🐱究竟要多绝望的哈气，才能唱出这首《That Cat》🐱.mp3" },
+		{ title: "🐱还是会想你，还是想哈你🐱", artist: "全民制作人", url: "/assets/music/url/🐱还是会想你，还是想哈你🐱 .mp3" },
+		{ title: "🥰又哈了一天🥰", artist: "全民制作人", url: "/assets/music/url/🥰又哈了一天🥰.mp3" },
+	],
 };
 
 export const footerConfig: FooterConfig = {
@@ -624,17 +698,17 @@ export const pioConfig: import("./types/config").PioConfig = {
 	mode: "draggable", // 默认为可拖拽模式
 	hiddenOnMobile: true, // 默认在移动设备上隐藏
 	dialog: {
-		welcome: "Welcome to Mizuki Website!", // 欢迎词
+		welcome: "欢迎来到哈基米の小窝！", // 欢迎词
 		touch: [
-			"What are you doing?",
-			"Stop touching me!",
-			"HENTAI!",
-			"Don't bully me like that!",
+			"你在干什么呀？",
+			"不要乱摸啦~",
+			"嘿嘿，好痒~",
+			"再摸我就生气啦！",
 		], // 触摸提示
-		home: "Click here to go back to homepage!", // 首页提示
-		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
-		close: "QWQ See you next time~", // 关闭提示
-		link: "https://github.com/matsuzaka-yuki/Mizuki", // 关于链接
+		home: "点击这里回到首页哦~", // 首页提示
+		skin: ["想看看我的新衣服吗？", "新衣服好看吗~"], // 换装提示
+		close: "下次再见啦~", // 关闭提示
+		link: "https://github.com/MOAKIEE", // 关于链接
 	},
 };
 

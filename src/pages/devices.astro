@@ -67,11 +67,21 @@ const brands = Object.keys(devices);
             <div class="relative p-6 pb-0">
               <div class="flex justify-center items-center h-48 bg-gradient-to-br from-[var(--card-bg)] to-[var(--btn-regular-bg)] rounded-lg overflow-hidden relative">
                 <div class="absolute inset-0 bg-[var(--primary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img
-                  src={device.image}
-                  alt={device.name}
-                  class="w-auto h-full max-h-full object-contain group-hover:scale-110 transition-all duration-500 drop-shadow-md relative z-10"
-                />
+                {device.image ? (
+                  <img
+                    src={device.image}
+                    alt={device.name}
+                    class="w-auto h-full max-h-full object-contain group-hover:scale-110 transition-all duration-500 drop-shadow-md relative z-10"
+                  />
+                ) : device.icon ? (
+                  <div class="text-[var(--primary)] group-hover:scale-110 transition-all duration-500 relative z-10">
+                    <Icon name={device.icon} class="text-8xl opacity-80" />
+                  </div>
+                ) : (
+                  <div class="text-[var(--primary)] group-hover:scale-110 transition-all duration-500 relative z-10">
+                    <Icon name="material-symbols:devices" class="text-8xl opacity-80" />
+                  </div>
+                )}
               </div>
             </div>
 
@@ -137,11 +147,9 @@ const brands = Object.keys(devices);
             <div class="relative p-6 pb-0">
               <div class="flex justify-center items-center h-48 bg-gradient-to-br from-[var(--card-bg)] to-[var(--btn-regular-bg)] rounded-lg overflow-hidden relative">
                 <div class="absolute inset-0 bg-[var(--primary)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img
-                  src="${device.image}"
-                  alt="${device.name}"
-                  class="w-auto h-full max-h-full object-contain group-hover:scale-110 transition-all duration-500 drop-shadow-md relative z-10"
-                />
+                <div class="text-[var(--primary)] group-hover:scale-110 transition-all duration-500 relative z-10">
+                  <iconify-icon icon="${device.icon || 'material-symbols:devices'}" width="96" height="96" class="opacity-80"></iconify-icon>
+                </div>
               </div>
             </div>
 
@@ -182,6 +190,10 @@ const brands = Object.keys(devices);
             </div>
           </a>
         `).join('');
+        // 确保图标加载
+        if (window.__iconifyLoader) {
+          window.__iconifyLoader.load().catch(console.error);
+        }
       });
     });
   </script>

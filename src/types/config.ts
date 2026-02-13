@@ -323,6 +323,14 @@ export type AnnouncementConfig = {
 	};
 };
 
+export type LocalSong = {
+	title: string;
+	artist: string;
+	cover?: string;
+	url: string;
+	duration?: number;
+};
+
 export type MusicPlayerConfig = {
 	enable: boolean; // 是否启用音乐播放器功能
 	mode: "meting" | "local"; // 音乐播放器模式
@@ -330,6 +338,8 @@ export type MusicPlayerConfig = {
 	id: string; // 歌单ID
 	server: string; // 音乐源服务器
 	type: string; // 音乐类型
+	playlist?: LocalSong[]; // 本地播放列表（mode为local时使用）
+	defaultCover?: string; // 默认封面图片（本地音乐无封面时使用）
 };
 
 export type FooterConfig = {

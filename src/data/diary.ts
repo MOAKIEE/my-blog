@@ -1,5 +1,4 @@
-// 日记数据配置
-// 用于管理日记页面的数据
+// 日记数据配置文件
 
 export interface DiaryItem {
 	id: number;
@@ -15,10 +14,11 @@ export interface DiaryItem {
 const diaryData: DiaryItem[] = [
 	{
 		id: 1,
-		content:
-			"The falling speed of cherry blossoms is five centimeters per second!",
-		date: "2025-01-15T10:30:00Z",
-		images: ["/images/diary/sakura.jpg", "/images/diary/1.jpg"],
+		content: "今天创建了自己的博客(*^▽^*)",
+		date: "2026-02-13T10:30:00Z",
+		location: "家",
+		mood: "开心",
+		tags: ["博客", "日常"],
 	},
 ];
 
