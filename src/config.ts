@@ -691,24 +691,17 @@ export const sakuraConfig: SakuraConfig = {
 // Pio 看板娘配置
 export const pioConfig: import("./types/config").PioConfig = {
 	enable: true, // 启用看板娘
-	models: ["/pio/models/pio/model.json"], // 默认模型路径
-	position: "left", // 模型位置
-	width: 280, // 默认宽度
-	height: 250, // 默认高度
-	mode: "draggable", // 默认为可拖拽模式
-	hiddenOnMobile: true, // 默认在移动设备上隐藏
-	dialog: {
-		welcome: "欢迎来到哈基米の小窝！", // 欢迎词
-		touch: [
-			"你在干什么呀？",
-			"不要乱摸啦~",
-			"嘿嘿，好痒~",
-			"再摸我就生气啦！",
-		], // 触摸提示
-		home: "点击这里回到首页哦~", // 首页提示
-		skin: ["想看看我的新衣服吗？", "新衣服好看吗~"], // 换装提示
-		close: "下次再见啦~", // 关闭提示
-		link: "https://github.com/MOAKIEE", // 关于链接
+	v3: {
+		homePath: "/",
+		modelPath: "/pio-v3/Resources/",
+		cdnBasePath: "https://cdn.jsdelivr.net/gh/letere-gzj/live2d-widget-v3@main",
+		tipsJsonPath: "/pio-v3/waifu-tips.laffey.json",
+		tools: ["hitokoto", "express", "photo", "info", "quit"],
+		drag: {
+			enable: false,
+			direction: ["x", "y"],
+		},
+		switchType: "order",
 	},
 };
 

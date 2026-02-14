@@ -1,0 +1,35 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamKiraKira0",
+            "Value": 0.0,
+            "Blend": "Overwrite"
+        },
+        {
+            "Id": "ParamAngry",
+            "Value": 0.0,
+            "Blend": "Overwrite"
+        },
+        {
+            "Id": "Parammouth0",
+            "Value": 0.0,
+            "Blend": "Overwrite"
+        },
+        {
+            "Id": "Paramtanchuang",
+            "Value": 0.0,
+            "Blend": "Overwrite"
+        },
+        {
+            "Id": "ParamtorpedoArm",
+            "Value": 0.0,
+            "Blend": "Overwrite"
+        },
+        {
+            "Id": "ParamtorpedoArm0",
+            "Value": 0.0,
+            "Blend": "Overwrite"
+        }
+    ]
+}

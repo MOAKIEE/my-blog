@@ -444,12 +444,35 @@ export type FullscreenWallpaperConfig = {
  */
 export type PioConfig = {
 	enable: boolean; // 是否启用看板娘
+	hiddenOnMobile?: boolean; // 是否在移动设备上隐藏
+	v3?: {
+		homePath?: string; // 站点首页路径
+		modelPath?: string; // 模型资源根路径（需包含 model 与 model_list.json）
+		cdnBasePath?: string; // live2d-widget-v3 资源CDN根路径
+		tipsJsonPath?: string; // 自定义台词JSON路径
+		tools?: (
+			| "hitokoto"
+			| "asteroids"
+			| "express"
+			| "switch-model"
+			| "switch-texture"
+			| "photo"
+			| "info"
+			| "quit"
+		)[];
+		drag?: {
+			enable?: boolean;
+			direction?: ("x" | "y")[];
+		};
+		switchType?: "order" | "random";
+	};
+
+	// 以下字段保留兼容旧版 pio 方案
 	models?: string[]; // 模型文件路径数组
 	position?: "left" | "right"; // 看板娘位置
 	width?: number; // 看板娘宽度
 	height?: number; // 看板娘高度
 	mode?: "static" | "fixed" | "draggable"; // 展现模式
-	hiddenOnMobile?: boolean; // 是否在移动设备上隐藏
 	dialog?: {
 		welcome?: string | string[]; // 欢迎词
 		touch?: string | string[]; // 触摸提示

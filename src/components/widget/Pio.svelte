@@ -1,114 +1,154 @@
 <script>
-import { onDestroy, onMount } from "svelte";
+import { onMount } from "svelte";
 import { pioConfig } from "@/config";
 
-// 将配置转换为 Pio 插件需要的格式
-const pioOptions = {
-	mode: pioConfig.mode,
-	hidden: pioConfig.hiddenOnMobile,
-	content: pioConfig.dialog || {},
-	model: pioConfig.models || ["/pio/models/pio/model.json"],
-};
+const defaultCdn = "https://cdn.jsdelivr.net/gh/letere-gzj/live2d-widget-v3@main";
 
-// 全局Pio实例引用
-let pioInstance = null;
-let pioInitialized = false;
-let pioContainer;
-let pioCanvas;
-
-// 样式已通过 Layout.astro 静态引入，无需动态加载
-
-// 等待 DOM 加载完成后再初始化 Pio
-function initPio() {
-	if (typeof window !== "undefined" && typeof Paul_Pio !== "undefined") {
-		try {
-			// 确保DOM元素存在
-			if (pioContainer && pioCanvas && !pioInitialized) {
-				pioInstance = new Paul_Pio(pioOptions);
-				pioInitialized = true;
-				console.log("Pio initialized successfully (Svelte)");
-			} else if (!pioContainer || !pioCanvas) {
-				console.warn("Pio DOM elements not found, retrying...");
-				setTimeout(initPio, 100);
-			}
-		} catch (e) {
-			console.error("Pio initialization error:", e);
+function loadExternalResource(url, type) {
+	return new Promise((resolve, reject) => {
+		if (!url) {
+			reject(new Error("Resource url is empty"));
+			return;
 		}
-	} else {
-		// 如果 Paul_Pio 还未定义，稍后再试
-		setTimeout(initPio, 100);
-	}
+
+		const selector = type === "css"
+			? `link[data-live2d-src='${url}']`
+			: `script[data-live2d-src='${url}']`;
+		if (document.querySelector(selector)) {
+			resolve(url);
+			return;
+		}
+
+		let tag;
+		if (type === "css") {
+			tag = document.createElement("link");
+			tag.rel = "stylesheet";
+			tag.href = url;
+		} else {
+			tag = document.createElement("script");
+			tag.src = url;
+		}
+
+		tag.setAttribute("data-live2d-src", url);
+		tag.onload = () => resolve(url);
+		tag.onerror = () => reject(new Error(`Failed to load: ${url}`));
+		document.head.appendChild(tag);
+	});
 }
 
-// 样式已通过 Layout.astro 静态引入，无需动态加载函数
+function initLive2dWidget() {
+	if (typeof window === "undefined") {
+		return;
+	}
 
-// 加载必要的脚本
-function loadPioAssets() {
-	if (typeof window === "undefined") return;
+	if (!pioConfig.enable) {
+		return;
+	}
 
-	// 样式已通过 Layout.astro 静态引入
+	if (screen.width < 768) {
+		return;
+	}
 
-	// 加载JS脚本
-	const loadScript = (src, id) => {
-		return new Promise((resolve, reject) => {
-			if (document.querySelector(`#${id}`)) {
-				resolve();
-				return;
-			}
-			const script = document.createElement("script");
-			script.id = id;
-			script.src = src;
-			script.onload = resolve;
-			script.onerror = reject;
-			document.head.appendChild(script);
-		});
+	const cdnBase = (pioConfig.v3?.cdnBasePath || defaultCdn).replace(/\/$/, "");
+	const modelPath = pioConfig.v3?.modelPath || "/pio-v3/Resources/";
+	const homePath = pioConfig.v3?.homePath || "/";
+	const tools = pioConfig.v3?.tools || ["hitokoto", "asteroids", "express", "switch-model", "switch-texture", "photo", "info", "quit"];
+	const dragDirection = pioConfig.v3?.drag?.direction || ["x", "y"];
+
+	const widgetConfig = {
+		path: {
+			homePath,
+			modelPath,
+			cssPath: `${cdnBase}/waifu.css`,
+			tipsJsonPath: pioConfig.v3?.tipsJsonPath || `${cdnBase}/waifu-tips.json`,
+			tipsJsPath: `${cdnBase}/waifu-tips.js`,
+			live2dCorePath: `${cdnBase}/Core/live2dcubismcore.js`,
+			live2dSdkPath: `${cdnBase}/live2d-sdk.js`,
+		},
+		tools,
+		drag: {
+			enable: pioConfig.v3?.drag?.enable ?? true,
+			direction: dragDirection,
+		},
+		switchType: pioConfig.v3?.switchType || "order",
 	};
 
-	// 按顺序加载脚本
-	loadScript("/pio/static/l2d.js", "pio-l2d-script")
-		.then(() => loadScript("/pio/static/pio.js", "pio-main-script"))
+	const ensureWaifuPosition = () => {
+		const waifu = document.getElementById("waifu");
+		if (!waifu) {
+			return;
+		}
+		waifu.style.position = "fixed";
+		waifu.style.left = "0px";
+		waifu.style.top = "auto";
+		waifu.style.right = "auto";
+		waifu.style.bottom = "0px";
+	};
+
+	const ensureWaifuStyles = () =>
+		Promise.all([
+			loadExternalResource(widgetConfig.path.cssPath, "css"),
+			loadExternalResource("/pio-v3/live2d-overrides.css", "css"),
+		]);
+
+	const reapplyOnSwupView = () => {
+		ensureWaifuStyles()
+			.then(() => {
+				ensureWaifuPosition();
+			})
+			.catch((error) => {
+				console.error("Live2D style recovery failed:", error);
+			});
+	};
+
+	document.addEventListener("swup:page:view", reapplyOnSwupView);
+
+	if (document.getElementById("waifu") || document.getElementById("waifu-toggle")) {
+		reapplyOnSwupView();
+		return;
+	}
+
+	localStorage.setItem("modelId", "0");
+	localStorage.setItem("modelTexturesId", "0");
+
+	Promise.all([
+		ensureWaifuStyles(),
+		loadExternalResource(widgetConfig.path.live2dCorePath, "js"),
+		loadExternalResource(widgetConfig.path.live2dSdkPath, "js"),
+		loadExternalResource(widgetConfig.path.tipsJsPath, "js"),
+	])
 		.then(() => {
-			// 脚本加载完成后初始化
-			setTimeout(initPio, 100);
+			if (typeof window.initWidget !== "function") {
+				throw new Error("initWidget is not available");
+			}
+
+			window.initWidget({
+				homePath: widgetConfig.path.homePath,
+				waifuPath: widgetConfig.path.tipsJsonPath,
+				cdnPath: widgetConfig.path.modelPath,
+				tools: widgetConfig.tools,
+				dragEnable: widgetConfig.drag.enable,
+				dragDirection: widgetConfig.drag.direction,
+				switchType: widgetConfig.switchType,
+			});
+			ensureWaifuPosition();
+
+			// 覆盖 info 按钮链接为拉菲II wiki 页面
+			const infoBtn = document.getElementById("waifu-tool-info");
+			if (infoBtn) {
+				infoBtn.addEventListener("click", (e) => {
+					e.stopPropagation();
+					e.preventDefault();
+					window.open("https://wiki.biligame.com/blhx/%E6%8B%89%E8%8F%B2II");
+				}, true);
+			}
 		})
 		.catch((error) => {
-			console.error("Failed to load Pio scripts:", error);
+			console.error("Live2D widget-v3 init failed:", error);
 		});
 }
 
-// 样式已通过 Layout.astro 静态引入，无需页面切换监听
-
 onMount(() => {
-	if (!pioConfig.enable) return;
-
-	// 如果配置了手机端隐藏，且当前屏幕宽度小于 1280px (平板/手机)，则直接终止，不加载脚本
-    if (pioConfig.hiddenOnMobile && window.matchMedia("(max-width: 1280px)").matches) {
-        return;
-    }
-
-	// 加载资源并初始化
-	loadPioAssets();
-});
-
-onDestroy(() => {
-	// Svelte 组件销毁时不需要清理 Pio 实例
-	// 因为我们希望它在页面切换时保持状态
-	console.log("Pio Svelte component destroyed (keeping instance alive)");
+	initLive2dWidget();
 });
 </script>
-
-{#if pioConfig.enable}
-  <div class={`pio-container ${pioConfig.position || 'right'}`} bind:this={pioContainer}>
-    <div class="pio-action"></div>
-    <canvas 
-      id="pio" 
-      bind:this={pioCanvas}
-      width={pioConfig.width || 280} 
-      height={pioConfig.height || 250}
-    ></canvas>
-  </div>
-{/if}
-
-<style>
-  /* Pio 相关样式将通过外部CSS文件加载 */
-</style>

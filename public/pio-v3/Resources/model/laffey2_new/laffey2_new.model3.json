@@ -1,0 +1,54 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "laffey2.moc3",
+    "Expressions": [
+      {
+        "Name": "normal",
+        "File": "normal.exp3.json"
+      },
+      {
+        "Name": "sparkle",
+        "File": "sparkle.exp3.json"
+      },
+      {
+        "Name": "angry",
+        "File": "angry.exp3.json"
+      },
+      {
+        "Name": "torpedo_pillow",
+        "File": "torpedo_pillow.exp3.json"
+      },
+      {
+        "Name": "torpedo_angry",
+        "File": "torpedo_angry.exp3.json"
+      },
+      {
+        "Name": "torpedo_sparkle",
+        "File": "torpedo_sparkle.exp3.json"
+      }
+    ],
+    "Physics": "laffey2.physics3.json",
+    "Textures": [
+      "laffey2.4096/texture_00.png"
+    ]
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeLOpen",
+        "ParamEyeROpen"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": [
+        "ParamMouthForm",
+        "ParamMouthOpenY"
+      ]
+    }
+  ]
+}
