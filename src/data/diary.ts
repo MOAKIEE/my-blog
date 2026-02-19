@@ -20,6 +20,13 @@ const diaryData: DiaryItem[] = [
 		mood: "开心",
 		tags: ["博客", "日常"],
 	},
+	{
+		id: 2,
+		content: "观看了超时空辉夜姬",
+		date: "2026-02-18T20:00:00Z",
+		tags: ["番剧", "日常"],
+		mood: "开心",
+	},
 ];
 
 // 获取日记统计数据
